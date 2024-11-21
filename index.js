@@ -5,7 +5,14 @@ const cors = require("cors");
 const app = express();
 
 const apiUrl = "https://discord.com/api/v10/users/";
+
+require('dotenv').config();
 const TOKEN = process.env.TOKEN;
+
+if (!TOKEN) {
+  console.error("TOKEN environment variable is not set!");
+  process.exit(1);
+}
 
 app.use(cors());
 
